@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterable_Gallery</title>
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(255, 255, 255);
+            margin: auto; 
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 4rem auto;
+            width: 90%;
+        }
+
+        h3{
+            font-size: 2.3rem;
+            color: #F4459A;
+        }
+
+        .menu{
+            margin: 1.5rem;
+        }
+        .btn{
+            border-radius: 5px;
+        }
+        .menu a{
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin:  1.5rem;
+            background-color: #752CF8;
+            color: white;
+            padding: 8px 22px;
+        }
+
+        .box{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .store-item{
+            width: 300px;
+            padding: 1rem;
+        }
+
+        .store-item img{
+            width: 100%;
+           display: block;
+           box-shadow: 7px 7px 20px rgb(0, 0, 0,0.2);
+        }
+</style>
+
+</head>
+<body>
+    <div class="container">
+
+        <h3>Gallery</h3>
+
+        <div class="menu">
+
+            <a href="#" class="btn" data-filter="all">All</a>
+            <a href="#" class="btn" data-filter="logo">Logo Design</a>
+            <a href="#" class="btn" data-filter="web">Web Design</a>
+            <a href="#" class="btn" data-filter="mobile">Mobile Apps</a>
+            
+        </div>
+
+        <div class="box" id="store-items">
+
+<!-- web -->
+            <div class="store-item web">
+                <img src="img/wd1.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item web">
+                <img src="img/wd2.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item web">
+                <img src="img/wd3.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item web">
+                <img src="img/wd4.jpeg" class="store-img" alt="">
+            </div>
+
+<!-- logo -->
+            <div class="store-item logo">
+                <img src="img/ld1.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item logo">
+                <img src="img/ld2.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item logo">
+                <img src="img/ld3.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item logo">
+                <img src="img/ld4.jpeg" class="store-img" alt="">
+            </div>
+
+<!-- Mobile -->
+            <div class="store-item mobile">
+                <img src="img/md1.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item mobile">
+                <img src="img/md2.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item mobile">
+                <img src="img/md3.jpeg" class="store-img" alt="">
+            </div>
+
+            <div class="store-item mobile">
+                <img src="img/md4.jpeg" class="store-img" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            const buttons = document.querySelectorAll('.btn')
+            const storeImgs = document.querySelectorAll('.store-item')
+
+            buttons.forEach((button) => {
+                button.addEventListener('click',(e)=>{
+                    e.preventDefault()
+                    const filter = e.target.dataset.filter
+
+                    storeImgs.forEach((item) => {
+                        if(filter === 'all'){
+                            item.style.display ='block'
+                        }else{
+                            if(item.classList.contains(filter)){
+                                item.style.display ='none'
+
+                            }
+                        }
+                    })
+                })
+            })
+        })();
+    </script>
+</body>
+</html>
